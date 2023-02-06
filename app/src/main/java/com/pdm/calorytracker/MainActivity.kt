@@ -10,19 +10,30 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.pdm.calorytracker.navigation.navigate
 import com.pdm.calorytracker.ui.theme.CaloryTrackerTheme
+import com.pdm.core.navigation.Route
+import com.pdm.onboarding_presentation.welcome.WelcomeScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             CaloryTrackerTheme {
+                val navController = rememberNavController()
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    NavHost(navController = navController, startDestination = Route.WELCOME) {
+                        composable(Route.WELCOME) {
+                            WelcomeScreen(onNavigate = navController::navigate)
+                        }
+                    }
                 }
             }
         }

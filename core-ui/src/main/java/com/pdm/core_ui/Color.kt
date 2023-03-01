@@ -1,4 +1,4 @@
-package com.pdm.calorytracker.ui.theme
+package com.pdm.core_ui
 
 import androidx.compose.ui.graphics.Color
 

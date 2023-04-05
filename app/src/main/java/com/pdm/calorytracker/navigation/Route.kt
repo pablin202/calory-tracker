@@ -1,4 +1,4 @@
-package com.pdm.core.navigation
+package com.pdm.calorytracker.navigation
 
 object Route {
     const val WELCOME = "welcome"

@@ -7,10 +7,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.pdm.core.domain.preferences.Preferences
 import com.pdm.core.domain.use_case.FilterOutDigits
-import com.pdm.core.navigation.Route
 import com.pdm.core.util.UiEvent
 import com.pdm.core.util.UiText
-import com.pdm.onboarding_presentation.R
 //import com.pdm.core.util.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
@@ -47,7 +45,7 @@ class AgeViewModel @Inject constructor(
                 return@launch
             }
             preferences.saveAge(ageNumber)
-            _uiEvent.send(UiEvent.Navigate(Route.HEIGHT))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }

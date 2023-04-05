@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.pdm.core.domain.preferences.Preferences
 import com.pdm.core.domain.use_case.FilterOutDigits
-import com.pdm.core.navigation.Route
 import com.pdm.core.util.UiEvent
 import com.pdm.core.util.UiText
 //import com.pdm.core.util.UiText
@@ -46,7 +45,7 @@ class WeightViewModel @Inject constructor(
                 return@launch
             }
             preferences.saveWeight(weightNumber)
-            _uiEvent.send(UiEvent.Navigate(Route.ACTIVITY))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }
